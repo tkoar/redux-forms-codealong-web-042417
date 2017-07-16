@@ -1,5 +1,10 @@
-export default function manageTodo(state = {
-  todos: [],
-}, action) {
-  return state;
+export default function manageTodo(state = {todos: []}, action) {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return (Object.assign({}, state, {todos: [...state.todos, action.todo.text]}))
+      break;
+    default:
+      return state;
+  }
+
 }
